@@ -58,8 +58,12 @@ class PostsController < ApplicationController
 
         post = current_user.posts.find(params[:id])
         #post = current_user.posts.find(params[:id])
-        post.destroy
-        redirect_to posts_path, notice: "Deleted Post: #{post.title}"
+        if post.destroy
+            redirect_to posts_path, notice: "Deleted Post: #{post.title}"
+        else
+            @errors = @post.errors.full_messages
+            render :delete
+        end
 
     end
 

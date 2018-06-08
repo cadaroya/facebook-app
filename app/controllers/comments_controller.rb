@@ -9,16 +9,17 @@ class CommentsController < ApplicationController
         @comment = @post.comments.create(params[:comment].permit(:body))
         @comment.user_id = current_user.id
 
-        puts "comment id baby <><><><><><><"
         
-        @comment.save
-
-        puts @comment.inspect
+        if @comment.save
+            redirect_to post_path(@post), notice: "Comment Created!"
+        else
+            @errors = @comment.errors.full_messages
+            render :new
+        end
         # @comment = current_user.comments.create(comment_params)
 
         # Query to 
         #@comment = Comment.select("*").joins(:user).where("users.id=?", @comment.user_id).last
-        redirect_to post_path(@post)
 
     end
 
@@ -45,8 +46,12 @@ class CommentsController < ApplicationController
     def destroy
         @post = Post.find(params[:post_id])
         @comment = current_user.comments.find(params[:id])
-        @comment.destroy
-        redirect_to post_path(@post)
+        if @comment.destroy
+            redirect_to post_path(@post), notice: "Comment deleted!"
+        else
+            @errors = @comment.errors.full_messages
+            render :delete
+        end
 
     end
 

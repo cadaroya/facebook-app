@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>FacebookApp</title>
+<head>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-
-  <body>
-    
+</head>
+<body>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
+            <%= link_to "Home", root_path, class: "navbar-brand" %>
             <%= link_to "Posts", posts_path, class: "navbar-brand" %>
           </div>
 
@@ -22,32 +20,21 @@
             <li> Signed in as: <%= current_user.email %> </li>
             <li> <%= link_to 'Sign out', sign_out_path, method: :delete %> </li>
             <% else %>
-              <%= link_to 'Sign in', sign_in_path %>
+              <li> <%= link_to 'Sign in', sign_in_path %> </li>
             <% end %>    
 
           </ul>
         </div>
       </nav>
-         
 
 
 
-
-
-
-
-
-
+  <div class="container">
     
-
-    <section class="container">
-      <div id="flash">
-        <% flash.each do |key, value| %>
-          <div class="flash alert <%= alert_class(key) %>"><%= value %></div>
-        <% end %>
-      </div>
-      
-      <%= yield %>
-    </section>
-  </body>
+    <% if notice %> <div class="alert alert-info"> <%= notice%> </div> <%end%>
+    <% if alert %> <div class="alert alert-warning"> <%= alert %> </div> <%end%>
+    
+    <%= yield %>
+  </div>
+</body>
 </html>

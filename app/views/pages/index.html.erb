@@ -1,1 +1,28 @@
-<h1> Welcome </h1>
+<div class="title-container">
+
+    <h1> Welcome to Facebook-like App</h1>
+
+</div>
+
+<div class="well">
+    <h2> The app has the following features </h2>
+    <ul>
+        <li> User Registration/Sign-in </li>
+        <li> User Authentication: can only view app content when logged in </li>
+        <li> Allows users to make, edit, and delete posts </li>
+        <li> Allows users to make, edit, and delete comments on posts </li>
+        <li> Note: Users can only modify posts or comments they own </li>
+    </ul>
+
+    
+
+    
+
+
+</div>
+    <% if !signed_in? %>
+        <hr>
+        <div class="well">
+            <h2> Start sharing now! <%= link_to t(".sign_in"), sign_in_path %>  </h2>
+        </div>
+    <% end%>
