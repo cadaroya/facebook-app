@@ -1,0 +1,27 @@
+<div class="title-container">
+    <h1> Edit Comment </h1>
+</div>
+
+<% if @errors.present?%>
+    <div class ="alert alert-danger errors">
+        <ul>
+            <% @errors.each do |error| %>
+                <li> <%= error %> </li>
+            <% end %>
+        </ul>
+    </div>
+
+<% end %>
+
+<%= form_for ([@comment.post, @comment]) do |f| %>
+
+    <p>
+        <%= f.label :body %> <br>
+        <%= f.text_area :body, class: "form-control" %>
+
+    </p>
+
+    <p>
+        <%= f.submit class: "btn btn-primary" %>
+    </p>
+<% end %>

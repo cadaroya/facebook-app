@@ -1,0 +1,31 @@
+<div class="title-container">
+    <h1> Edit Post </h1>
+</div>
+
+<% if @errors.present?%>
+    <div class ="alert alert-danger errors">
+        <ul>
+            <% @errors.each do |error| %>
+                <li> <%= error %> </li>
+            <% end %>
+        </ul>
+    </div>
+
+<% end %>
+
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
+    <p>
+        <%= f.label :title %> <br>
+        <%= f.text_field :title, class: "form-control" %>
+    </p>
+
+    <p>
+        <%= f.label :body %> <br>
+        <%= f.text_area :body, class: "form-control" %>
+
+    </p>
+
+    <p>
+        <%= f.submit class: "btn btn-primary" %>
+    </p>
+<% end %>
