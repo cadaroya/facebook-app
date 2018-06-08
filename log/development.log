@@ -7963,3 +7963,142 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 174ms (Views: 159.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-06-08 22:50:19 +0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 674ms (Views: 649.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-08 22:50:31 +0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 175ms (Views: 158.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-08 22:50:32 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 192ms (Views: 167.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-08 22:50:34 +0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 187ms (Views: 170.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-08 22:50:42 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"6th Post: What is Lorem Ipsum", "body"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."}, "commit"=>"Save Post"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["title", "6th Post: What is Lorem Ipsum"], ["body", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."], ["created_at", "2018-06-08 14:50:42.946799"], ["updated_at", "2018-06-08 14:50:42.946799"]]
+  [1m[35m (17.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 45ms (ActiveRecord: 17.9ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 22:50:42 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (7) ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 197ms (Views: 173.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-08 23:01:45 +0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 678ms (Views: 653.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-08 23:01:58 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 196ms (Views: 168.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 23:02:00 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (posts.id = '7') ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 214ms (Views: 192.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 23:02:04 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (posts.id = '7') ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 181ms (Views: 159.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 23:02:08 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (posts.id = '7') ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 185ms (Views: 164.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/7/edit" for 127.0.0.1 at 2018-06-08 23:02:09 +0800
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 7], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 232ms (Views: 210.7ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/posts/7" for 127.0.0.1 at 2018-06-08 23:02:11 +0800
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"6th Post: What is Lorem Ipsum", "body"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."}, "commit"=>"Save Post", "id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 23:02:11 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (posts.id = '7') ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 178ms (Views: 158.2ms | ActiveRecord: 2.0ms)
+
+

@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
     def show
         # Query for post
-        @post = Post.select("posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email").joins(:user).where(params[:id]).last
+        @post = Post.select("posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email").joins(:user).where("posts.id = ?",params[:id]).last
         puts @post.body
         #@post = Post.find(params[:id])
 
