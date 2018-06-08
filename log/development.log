@@ -8102,3 +8102,145 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 178ms (Views: 158.2ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/posts" for 127.0.0.1 at 2018-06-08 23:12:06 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 167ms (Views: 147.9ms | ActiveRecord: 2.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_posts_on_user_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-06-08 23:38:46 +0800
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (435.0ms)
+Completed 200 OK in 1981ms (Views: 1943.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-08 23:39:10 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 238ms (Views: 189.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 23:39:12 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (posts.id = '7') ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 323ms (Views: 274.8ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/posts/7/comments" for 127.0.0.1 at 2018-06-08 23:39:16 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"car"}, "commit"=>"Create Comment", "post_id"=>"7"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["post_id", 7], ["body", "car"], ["created_at", "2018-06-08 15:39:16.574380"], ["updated_at", "2018-06-08 15:39:16.574380"]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 32ms (ActiveRecord: 11.9ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-06-08 23:39:16 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" WHERE (posts.id = '7') ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM "comments" INNER JOIN "users" ON "users"."id" = "comments"."user_id" WHERE (comments.post_id='7') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 189ms (Views: 167.1ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/posts/7" for 127.0.0.1 at 2018-06-08 23:39:18 +0800
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"7"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 7]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 34]]
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 7]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 24ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-08 23:39:18 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 184ms (Views: 166.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-08 23:39:29 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["remember_token", "2ebd16e0c78363ca09e8728ffbcd0f38bdd2cab8"], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM "posts" INNER JOIN "users" ON "users"."id" = "posts"."user_id" ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 179ms (Views: 161.6ms | ActiveRecord: 0.0ms)
+
+
