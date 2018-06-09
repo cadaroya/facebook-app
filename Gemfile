@@ -32,10 +32,10 @@ gem "clearance", '~> 1.15.1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
-#gem 'pg'
-#gem 'rails_12factor'
+gem 'pg'
+gem 'rails_12factor'
 
-gem 'mysql2'
+#gem 'mysql2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
