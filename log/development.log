@@ -8244,3 +8244,545 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 179ms (Views: 161.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-06-10 00:15:01 +0800
+  
+ActiveRecord::NoDatabaseError (Unknown database 'fbapp_development'):
+  
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:25:in `rescue in mysql2_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:12:in `mysql2_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.0ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (47.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (21.2ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('8173557079443074550', 0)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20180606155517)
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `email` varchar(255) NOT NULL, `encrypted_password` varchar(128) NOT NULL, `confirmation_token` varchar(128), `remember_token` varchar(128) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (21.4ms)[0m  [1m[35mCREATE  INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE  INDEX `index_users_on_remember_token`  ON `users` (`remember_token`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180606155517')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20180606170600)
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE TABLE `posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `title` varchar(255), `body` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_posts_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_5b5ddfd518`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180606170600')[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20180607164856)
+  [1m[35m (40.5ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `post_id` bigint, `body` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_comments_on_user_id`  (`user_id`),  INDEX `index_comments_on_post_id`  (`post_id`), CONSTRAINT `fk_rails_03de2dc08c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_2fd19c0db7`
+FOREIGN KEY (`post_id`)
+  REFERENCES `posts` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180607164856')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-06-09 16:15:24', '2018-06-09 16:15:24')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('8173557079443074550')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-06-10 00:15:41 +0800
+  [1m[35m (1.0ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered pages/index.html.erb within layouts/application (91.8ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 683ms (Views: 647.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-10 00:16:12 +0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered pages/index.html.erb within layouts/application (5.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m  [["remember_token", "e01d63d21a4e3a198dbbdf27d68e9b66d16ad984"], ["LIMIT", 1]]
+Completed 200 OK in 197ms (Views: 174.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2018-06-10 00:16:15 +0800
+Processing by Clearance::SessionsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (0.0ms)
+  Rendered sessions/new.html.erb within layouts/application (11.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m  [["remember_token", "e01d63d21a4e3a198dbbdf27d68e9b66d16ad984"], ["LIMIT", 1]]
+Completed 200 OK in 204ms (Views: 201.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2018-06-10 00:16:19 +0800
+Processing by Clearance::UsersController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.0ms)
+  Rendered users/new.html.erb within layouts/application (17.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m  [["remember_token", "e01d63d21a4e3a198dbbdf27d68e9b66d16ad984"], ["LIMIT", 1]]
+Completed 200 OK in 213ms (Views: 204.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-10 00:16:20 +0800
+Processing by Clearance::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@email.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = 'e01d63d21a4e3a198dbbdf27d68e9b66d16ad984' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@email.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `users` (`created_at`, `updated_at`, `email`, `encrypted_password`, `remember_token`) VALUES ('2018-06-09 16:16:20', '2018-06-09 16:16:20', 'test@email.com', '$2a$10$LRJXHh.plwDszGOl16RdPOto1frjCys6/5YmQqLqzk.3J/gHEnNQK', '59a1250728df1377b2a370a4d7804802956c97a3')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 81ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-10 00:16:20 +0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered pages/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 222ms (Views: 198.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-10 00:16:22 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 202ms (Views: 175.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-10 00:16:23 +0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 223ms (Views: 201.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-10 00:16:31 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Post One", "body"=>"Sample Text"}, "commit"=>"Save Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `body`, `created_at`, `updated_at`) VALUES (1, 'Post One', 'Sample Text', '2018-06-09 16:16:31', '2018-06-09 16:16:31')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 31ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-06-10 00:16:31 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '1') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='1') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 188ms (Views: 162.9ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-06-10 00:16:37 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"Comment 1"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `post_id`, `body`, `created_at`, `updated_at`) VALUES (1, 1, 'Comment 1', '2018-06-09 16:16:37', '2018-06-09 16:16:37')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 20ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-06-10 00:16:37 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '1') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='1') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendered posts/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 192ms (Views: 173.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-06-10 00:16:40 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"Comment 2"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `post_id`, `body`, `created_at`, `updated_at`) VALUES (1, 1, 'Comment 2', '2018-06-09 16:16:40', '2018-06-09 16:16:40')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 18ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-06-10 00:16:40 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '1') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='1') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 193ms (Views: 170.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-06-10 00:16:43 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"Comment 3"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `post_id`, `body`, `created_at`, `updated_at`) VALUES (1, 1, 'Comment 3', '2018-06-09 16:16:43', '2018-06-09 16:16:43')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 17ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-06-10 00:16:43 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '1') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='1') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 188ms (Views: 164.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/1/comments/3/edit" for 127.0.0.1 at 2018-06-10 00:16:44 +0800
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"1", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`user_id` = 1 AND `comments`.`id` = 3 LIMIT 1[0m
+  Rendering comments/edit.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendered comments/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 181ms (Views: 160.0ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/posts/1/comments/3" for 127.0.0.1 at 2018-06-10 00:16:48 +0800
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"Comment 3. EDIT"}, "commit"=>"Update Comment", "post_id"=>"1", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`user_id` = 1 AND `comments`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `comments` SET `body` = 'Comment 3. EDIT', `updated_at` = '2018-06-09 16:16:48' WHERE `comments`.`id` = 3[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 17ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-06-10 00:16:48 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '1') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='1') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 187ms (Views: 166.1ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/posts/1/comments/2" for 127.0.0.1 at 2018-06-10 00:16:50 +0800
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`user_id` = 1 AND `comments`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 2[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 13ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-06-10 00:16:50 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '1') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='1') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 192ms (Views: 169.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-10 00:16:52 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 183ms (Views: 164.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-10 00:16:54 +0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 173ms (Views: 155.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-10 00:16:59 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Post Two", "body"=>"Sample Text"}, "commit"=>"Save Post"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `body`, `created_at`, `updated_at`) VALUES (1, 'Post Two', 'Sample Text', '2018-06-09 16:16:59', '2018-06-09 16:16:59')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 11ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-06-10 00:16:59 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '2') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='2') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 180ms (Views: 157.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-10 00:17:01 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 174ms (Views: 156.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-10 00:17:02 +0800
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 195ms (Views: 177.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-10 00:17:07 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Post Three", "body"=>"Sample Text"}, "commit"=>"Save Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `body`, `created_at`, `updated_at`) VALUES (1, 'Post Three', 'Sample Text', '2018-06-09 16:17:07', '2018-06-09 16:17:07')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2018-06-10 00:17:07 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '3') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='3') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 199ms (Views: 177.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts/3/comments" for 127.0.0.1 at 2018-06-10 00:17:13 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"Comment"}, "commit"=>"Create Comment", "post_id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `post_id`, `body`, `created_at`, `updated_at`) VALUES (1, 3, 'Comment', '2018-06-09 16:17:13', '2018-06-09 16:17:13')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 18ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2018-06-10 00:17:13 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '3') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='3') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 3 LIMIT 1[0m
+  Rendered posts/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 195ms (Views: 173.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-10 00:17:14 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 172ms (Views: 154.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-06-10 00:17:18 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '2') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='2') ORDER BY comments.id DESC[0m
+  Rendered posts/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 185ms (Views: 165.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/posts/2/comments" for 127.0.0.1 at 2018-06-10 00:17:21 +0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"Comment"}, "commit"=>"Create Comment", "post_id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `post_id`, `body`, `created_at`, `updated_at`) VALUES (1, 2, 'Comment', '2018-06-09 16:17:21', '2018-06-09 16:17:21')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 19ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-06-10 00:17:21 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '2') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='2') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 2 LIMIT 1[0m
+  Rendered posts/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 183ms (Views: 162.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/2/edit" for 127.0.0.1 at 2018-06-10 00:17:22 +0800
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1 AND `posts`.`id` = 2 LIMIT 1[0m
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 271ms (Views: 246.9ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/posts/2" for 127.0.0.1 at 2018-06-10 00:17:26 +0800
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Post Two Lets go", "body"=>"Sample Text"}, "commit"=>"Save Post", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1 AND `posts`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE `posts` SET `title` = 'Post Two Lets go', `updated_at` = '2018-06-09 16:17:26' WHERE `posts`.`id` = 2[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 13ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-06-10 00:17:26 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` WHERE (posts.id = '2') ORDER BY `posts`.`id` DESC LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT comments.id, comments.body, comments.post_id, comments.user_id, comments.created_at, comments.updated_at, users.email FROM `comments` INNER JOIN `users` ON `users`.`id` = `comments`.`user_id` WHERE (comments.post_id='2') ORDER BY comments.id DESC[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 2 LIMIT 1[0m
+  Rendered posts/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 184ms (Views: 163.8ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/posts/2" for 127.0.0.1 at 2018-06-10 00:17:33 +0800
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1 AND `posts`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 2[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 5[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM `posts` WHERE `posts`.`id` = 2[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 14ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-10 00:17:33 +0800
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`remember_token` = '59a1250728df1377b2a370a4d7804802956c97a3' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT posts.id, posts.title, posts.body, posts.created_at, posts.updated_at, posts.user_id, users.email FROM `posts` INNER JOIN `users` ON `users`.`id` = `posts`.`user_id` ORDER BY posts.id DESC[0m
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 183ms (Views: 164.6ms | ActiveRecord: 1.0ms)
+
+

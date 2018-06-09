@@ -32,7 +32,10 @@ gem "clearance", '~> 1.15.1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+#gem 'pg'
+#gem 'rails_12factor'
 
+gem 'mysql2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -45,7 +48,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3'
 end
 
 group :development do
@@ -54,8 +57,8 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  # gem 'pg'
+  # gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
